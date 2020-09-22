@@ -9,7 +9,12 @@
     "scss": "node-sass -o css/ css/",
     "lite": "lite-server",
     "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
-    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* --out-dir='dist/img'",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
   },
   "repository": {
     "type": "git",
@@ -21,7 +26,8 @@
   "devDependencies": {
     "lite-server": "^2.2.2",
     "node-sass": "^4.14.1",
-    "parallelshell": "^3.0.1"
+    "parallelshell": "^3.0.1",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "bootstrap-social": "^5.1.1",
