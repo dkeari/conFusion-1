@@ -5,6 +5,7 @@ $background-pale: #D1C4E9;
 
 //Height variables
 $carousel-item-height: 300px;
+$modal-item-height:300px;
 
 @mixin zero-margin ($pad-up-dn, $pad-left-right){
     margin: 0px auto;
@@ -45,6 +46,30 @@ $carousel-item-height: 300px;
         }
     }
 }
+//assignment 4 task 4
+.modal{        
+        .close{
+            color: floralwhite;
+        }     
+    
+}
+
+h4{
+    color:floralwhite;
+}
+
+h5{
+    color:floralwhite; 
+}
+.modal-body{
+    background: $background-pale;
+}
+
+.modal-header{
+    background:$background-dark;
+}
+
+//end of Assignment 4 task 4
 
 #carouselButton{
     right: 0px;

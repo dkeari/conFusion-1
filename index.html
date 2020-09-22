@@ -11,9 +11,10 @@
 	<link rel="stylesheet" href="node_modules/bootstrap-social/css/bootstrap-social.css">
 	<link href="css/styles.css" rel="stylesheet">
     <!-- Script -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <head>
     <title>Ristorante Con Fusion</title>
 </head>
@@ -33,7 +34,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul> 
 				<span class="navbar-text">
-					<a data-toggle="modal" data-target="#loginModal">
+					<a role="button" id="loginBtn">
 						<span class="fa fa-sign-in"></span> Login
 					</a>
 				</span>
@@ -79,18 +80,18 @@
 		</div>
 	</div>
 	<!-- Modal Form -->
-					<div class="modal fade reserveform" id="reserveform" role="dialog" aria-labelledby="reserveformTitle" aria-hidden="true">
-						<div class="modal-dialog modal-lg" role="document">
+					<div class="modal fade" id="myModal" tabindex="-1"  role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title col-md-4" id="reserveformTitle">Reserve a Table</h5>
+									<h5 class="modal-title col-md-4" id="myModalTitle">Reserve a Table</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body">
 									<!--start form-->
-							<form>
+							 <form>
 								<div class="form-group-row ">
 								  
 								
@@ -153,7 +154,7 @@
 									</div>
 								</div>
 						
-							</form>
+							 </form>
 									
 									<!--finish form-->
 								</div>
@@ -174,7 +175,8 @@
 					<img src="img/logo.png" class="img-fluid">
                 </div>				
 					<div class="col-12 col-sm align-self-center">
-					     <a role="button" class="btn btn-block nav-link btn-warning" data-toggle="modal" data-target="#reserveform">Reserve Table</a>
+					 <!--Assignment 3 Task 1 removing data-* attributes-->
+					  <a role="button" class="btn btn-block nav-link btn-warning" id="myBtn">Reserve Table</a>
 					</div>
 					
 				
@@ -279,7 +281,7 @@
         </div>
 		<div class="row row-content">
 			<div class="col-md-8 offset-md-2">
-			  <div class="card" id="reserveform">
+			  <div class="card">
 			     <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
 				<div class="card card-body bg-light">
 					<form>
@@ -377,10 +379,7 @@
            </div>
         </div>
     </footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
 	<script>
         $(document).ready(function(){
             $("#mycarousel").carousel( { interval:2000 } );
@@ -395,7 +394,15 @@
                     $("#carouselButton").children("span").removeClass('fa-play');
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
-               });	
+			   });	
+			//Assignment 4 Task 1,2,3
+			$("#myBtn").click(function(){
+				$("#myModal").modal("toggle");
+			});   
+			//Assignment 4 Task 1
+			$("#loginBtn").click(function(){
+				$("#loginModal").modal("toggle");
+			});
         });
 	</script>
 	
